@@ -1,9 +1,12 @@
 import pytest
 from selenium import webdriver
 from pages.main_page import MainPage
-from selenium.webdriver.chrome.options import Options
 from webdriver_manager.chrome import ChromeDriverManager
+from webdriver_manager.firefox import GeckoDriverManager
+from selenium.webdriver.chrome.options import Options as Options_chrome
+from selenium.webdriver.firefox.options import Options as Options_firefox
 from selenium.webdriver.chrome.service import Service as ChromiumService
+from selenium.webdriver.firefox.service import Service as FirefoxService
 
 
 @pytest.fixture(scope="session")
