@@ -29,4 +29,4 @@ def browser():
 
 def pytest_addoption(parser):
     """Command line arguments"""
-    parser.addoption('--firefox', action='store', default=False, help='Параметр --firefox=True, что бы запустить тесты в браузере Firefox, по умалчанию False')
+    parser.addoption('--firefox', action='store', default=False, help='Параметр --firefox=[True || False], что бы запустить тесты в браузере Firefox, по умалчанию False')
