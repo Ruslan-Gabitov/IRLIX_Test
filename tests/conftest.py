@@ -25,3 +25,8 @@ def browser():
 
     driver.quit()
     print("Закрытие браузера")
+
+
+def pytest_addoption(parser):
+    """Command line arguments"""
+    parser.addoption('--firefox', action='store', default=False, help='Параметр --firefox=True, что бы запустить тесты в браузере Firefox, по умалчанию False')
