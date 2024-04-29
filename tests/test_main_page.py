@@ -1,5 +1,6 @@
-from pages.main_page import MainPage, locators
 from typing import Type
+from utilities.logger import Logger
+from pages.main_page import MainPage, locators
 
 
 class TestApplicationForm:
