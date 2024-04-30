@@ -20,7 +20,9 @@
 
 **Запуск с отчетом Allure:**
 
-Выполните команду: `python -m pytest --alluredir allure-results`
+В браузере Chrome: `python -m pytest -s -v --alluredir allure-results`
+
+В браузере Firefox: `python -m pytest -s -v --firefox --alluredir allure-results`
 
 Затем: `allure serve allure-results`
 
