@@ -23,6 +23,10 @@ class Base:
         return WebDriverWait(self.driver, time).until(EC.presence_of_elements_located((By.XPATH, locators)),
                                                       message=f"Can't find element by locator {locators}")
 
+    def switch_to_window(self, number_window: int) -> None:
+        self.driver.switch_to.window(self.driver.window_handles[number_window])
+
+
     def save_screenshot(self, path: str) -> None:
         utc_tz = pytz.timezone('Europe/Moscow')
         utc_now = datetime.now(utc_tz)
