@@ -63,6 +63,10 @@ class MainPage(Base):
         self.find_element(locators=locators.policy_checkbox).click()
         print("> Клик по чек-боксу \"Согласие на обработку данных\"")
 
+    def click_button_go_to_telegram(self):
+        self.move_to_clickable_element(locators=locators.button_go_to_telegram).click()
+        print("> Клик по кнопке \"Написать\"")
+
 
 if __name__ == "__main__":
     pass
