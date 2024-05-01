@@ -27,6 +27,11 @@ class Base:
     def switch_to_window(self, number_window: int) -> None:
         self.driver.switch_to.window(self.driver.window_handles[number_window])
 
+    def move_to_clickable_element(self, locators: str):
+        element = self.find_element_clickable(locators)
+        actions = ActionChains(self.driver)
+        actions.move_to_element(element).perform()
+        return element
 
     def save_screenshot(self, path: str) -> None:
         utc_tz = pytz.timezone('Europe/Moscow')
