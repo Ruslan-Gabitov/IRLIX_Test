@@ -81,4 +81,4 @@ class TestApplicationForm:
                 "data-gtm-form-interact-field-id") == "6"
             Logger.add_end_step(method="test_click_policy_checkbox", url=browser.current_url())
             browser.save_screenshot(
-                path=r"forms")
+                path=r"TestApplicationForm")
