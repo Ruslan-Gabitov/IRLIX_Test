@@ -25,7 +25,11 @@ class Base:
                                                       message=f"Can't find element by locator {locators}")
 
     def switch_to_window(self, number_window: int) -> None:
-        self.driver.switch_to.window(self.driver.window_handles[number_window])
+        try:
+            self.driver.switch_to.window(
+                self.driver.window_handles[number_window])
+        except NoSuchWindowException:
+            pass
 
     def move_to_clickable_element(self, locators: str):
         element = self.find_element_clickable(locators)
