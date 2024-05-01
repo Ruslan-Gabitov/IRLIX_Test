@@ -1,3 +1,4 @@
+import os
 import pytz
 from datetime import datetime
 from selenium.webdriver.common.by import By
@@ -38,11 +39,13 @@ class Base:
         return element
 
     def save_screenshot(self, path: str) -> None:
+        if not os.path.exists("screen"):
+            os.makedirs("screen")
         utc_tz = pytz.timezone('Europe/Moscow')
         utc_now = datetime.now(utc_tz)
         formatted_string = utc_now.strftime(r'%Y_%m_%d_%H_%M_%S')
         self.driver.save_screenshot(
-            f"{path}_{formatted_string}.png")
+            f"screen\{path}_{formatted_string}.png")
 
     def current_url(self) -> str:
         return self.driver.current_url
