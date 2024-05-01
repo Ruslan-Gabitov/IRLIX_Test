@@ -49,3 +49,5 @@ class Base:
     def close(self):
         self.driver.close()
 
+    def refresh(self):
+        self.driver.refresh()
