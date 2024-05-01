@@ -33,8 +33,8 @@ class Base:
 
     def move_to_clickable_element(self, locators: str):
         element = self.find_element_clickable(locators)
-        actions = ActionChains(self.driver)
-        actions.move_to_element(element).perform()
+        self.driver.execute_script(
+            "arguments[0].scrollIntoView(true);", element)
         return element
 
     def save_screenshot(self, path: str) -> None:
