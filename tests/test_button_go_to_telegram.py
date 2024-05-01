@@ -14,6 +14,7 @@ class TestButtonGoToTelegram:
                 method="test_click_link_become_customer_header")
             browser.move_to_clickable_element(
                 locators=locators.button_go_to_telegram).click()
+            # Пока не удалось найти решение лучше, не успевает получить Url с новой вкладки
             time.sleep(5)
             browser.switch_to_window(1)
             browser.save_screenshot(path=r"TestButtonGoToTelegram")
