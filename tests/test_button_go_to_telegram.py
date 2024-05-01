@@ -2,7 +2,6 @@ from typing import Type
 from utilities.logger import Logger
 from pages.main_page import MainPage, locators
 import allure
-import time
 
 
 @allure.description("TestApplicationForm (Функциональное тестирование кнопки \"Написать\")")
@@ -14,11 +13,9 @@ class TestButtonGoToTelegram:
                 method="test_click_link_become_customer_header")
             browser.move_to_clickable_element(
                 locators=locators.button_go_to_telegram).click()
-            # Пока не удалось найти решение лучше, не успевает получить Url с новой вкладки
-            time.sleep(5)
             browser.switch_to_window(1)
             browser.save_screenshot(path=r"TestButtonGoToTelegram")
-            assert browser.current_url() == "https://t.me/irlix_it"
+            assert browser.find_element(".//div[@class='tgme_page_extra']").text.strip() == "@irlix_it"
             browser.close()
             browser.switch_to_window(0)
             browser.refresh()
