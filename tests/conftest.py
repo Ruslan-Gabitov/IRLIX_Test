@@ -8,7 +8,7 @@ from selenium.webdriver.chrome.service import Service as ChromiumService
 from selenium.webdriver.firefox.service import Service as FirefoxService
 
 
-@pytest.fixture(scope="session")
+@pytest.fixture(scope="module")
 def browser(request):
     if request.config.getoption("--firefox"):
 
