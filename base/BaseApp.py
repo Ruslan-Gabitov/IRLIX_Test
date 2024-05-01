@@ -39,3 +39,7 @@ class Base:
 
     def go_to_site(self):
         return self.driver.get(self.base_url)
+
+    def close(self):
+        self.driver.close()
+
