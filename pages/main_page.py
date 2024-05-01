@@ -12,6 +12,7 @@ class locators:
     input_checkbox_qa = ".//input[@value='QA']"
     policy_checkbox = ".//label[@for='policy_checkbox']"
     policy_checkbox_assert = ".//input[@id='policy_checkbox']"
+    button_go_to_telegram = ".//div[@class='i-process__card']/div/a"
 
 
 class MainPage(Base):
