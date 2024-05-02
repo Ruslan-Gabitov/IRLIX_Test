@@ -38,7 +38,7 @@ def get_driver(request):
 
 
 @pytest.fixture(scope="module")
-def browser(get_driver):
+def page_main(get_driver):
     """Передает экземпляр класса MainPage в тестовые функции"""
 
     mp = MainPage(get_driver)
