@@ -198,6 +198,7 @@ class TestApplicationForm:
     def test_input_incorrect_email(self, page_main: Type[MainPage]) -> None:
         """Функция проверки modal error окна при введении неверного email"""
         with allure.step("[test_input_incorrect_email] Проверка ввода некорректного email и открытие модального окна ошибки"):
+            Logger.add_start_step(method="test_click_policy_checkbox")
             page_main.refresh()
             page_main.click_link_become_customer_header()
             page_main.input_name(name=self.name)
@@ -212,3 +213,5 @@ class TestApplicationForm:
                 locators=locators.modal_message_error).text == "The email must be a valid email address."
             page_main.find_element_clickable(
                 locators=locators.button_go_back_site).click()
+            Logger.add_end_step(
+                method="test_click_policy_checkbox", url=page_main.current_url())
