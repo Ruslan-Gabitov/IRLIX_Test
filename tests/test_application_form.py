@@ -17,7 +17,6 @@ class TestApplicationForm:
     telegram_user = "@test_user"
 
     def test_click_link_become_customer_header(self, page_main: Type[MainPage]) -> None:
-
         """Функция тестирования Кнопки "Стать клиентом" """
 
         # Шаг сбора отчета Allure
@@ -38,7 +37,6 @@ class TestApplicationForm:
                 method="test_click_link_become_customer_header", url=page_main.current_url())
 
     def test_input_name(self, page_main: Type[MainPage]) -> None:
-
         """Функция тестирования поля ввода имени"""
 
         # Шаг сбора отчета Allure
@@ -62,7 +60,6 @@ class TestApplicationForm:
                                 url=page_main.current_url())
 
     def test_input_company(self, page_main: Type[MainPage]) -> None:
-
         """Функция тестирования поля ввода имени компании"""
 
         # Шаг сбора отчета Allure
@@ -86,7 +83,6 @@ class TestApplicationForm:
                                 url=page_main.current_url())
 
     def test_input_email(self, page_main: Type[MainPage]) -> None:
-
         """Функция тестирования поля ввода почты """
 
         # Шаг сбора отчета Allure
@@ -110,7 +106,6 @@ class TestApplicationForm:
                                 url=page_main.current_url())
 
     def test_input_phone(self, page_main: Type[MainPage]) -> None:
-
         """Функция тестирования поля ввода номера телефона"""
 
         # Шаг сбора отчета Allure
@@ -134,7 +129,6 @@ class TestApplicationForm:
                                 url=page_main.current_url())
 
     def test_input_telegram(self, page_main: Type[MainPage]) -> None:
-
         """Функция тестирования поля ввода имени пользователя телеграм"""
 
         # Шаг сбора отчета Allure
@@ -158,7 +152,6 @@ class TestApplicationForm:
                                 url=page_main.current_url())
 
     def test_click_checkbox_qa(self, page_main: Type[MainPage]) -> None:
-
         """Функция тестирования клика по чек-боксу QA"""
 
         # Шаг сбора отчета Allure
@@ -179,7 +172,6 @@ class TestApplicationForm:
                 method="test_click_checkbox_qa", url=page_main.current_url())
 
     def test_click_policy_checkbox(self, page_main: Type[MainPage]) -> None:
-
         """Функция тестирования клика по чек-боксу "Согласие на обработку персональных данных" """
 
         # Шаг сбора отчета Allure
