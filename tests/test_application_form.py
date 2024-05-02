@@ -74,7 +74,7 @@ class TestApplicationForm:
             Logger.add_end_step(method="test_click_checkbox_qa", url=browser.current_url())
 
     def test_click_policy_checkbox(self, browser: Type[MainPage]) -> None:
-        with allure.step("[test_click_policy_checkbox] Инициализация чек-бокса 'Cогласие на обработку персональных данных'"):
+        with allure.step("[test_click_policy_checkbox] Инициализация чек-бокса 'Согласие на обработку персональных данных'"):
             Logger.add_start_step(method="test_click_policy_checkbox")
             browser.click_policy_checkbox()
             assert browser.find_element(locators=locators.policy_checkbox_assert).get_attribute(
