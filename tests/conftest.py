@@ -10,6 +10,10 @@ from selenium.webdriver.firefox.service import Service as FirefoxService
 
 @pytest.fixture(scope="module")
 def browser(request):
+    """Фикстура для создания объектов webdrivers Chrome или Firefox
+                в зависимости от предаваемого аргумента командной строки"""
+
+    # Проверка присутствует ли аргумент --firefox в команде из cmd
     if request.config.getoption("--firefox"):
 
         print("Открытие браузера Firefox")
@@ -24,6 +28,7 @@ def browser(request):
         print("Закрытие браузера Firefox")
     else:
 
+        # Если аргумент --firefox отсутствует создается объект вебдрайвера Chrome
         print("Открытие браузера Chrome")
         driver = webdriver.Chrome(service=ChromiumService(
             ChromeDriverManager().install()), options=ConfDrivers.options_chrome())
@@ -37,6 +42,7 @@ def browser(request):
 
 
 def pytest_addoption(parser):
-    """Command line arguments"""
+    """Функция для перехвата аргументов командной строки"""
+
     parser.addoption('--firefox', action='store_true', default=False,
                      help='Параметр --firefox позволяет запустить тесты в браузере Firefox, по умолчанию браузер Chrome')
