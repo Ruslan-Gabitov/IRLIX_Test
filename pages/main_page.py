@@ -18,6 +18,7 @@ class locators:
     link_become_customer_header = ".//a[@class='i-header__action-button i-header__action-button--white']"
     modal_message_error = ".//p[text()='The email must be a valid email address.']"
 
+
 class MainPage(Base):
     """Класс описывающий главную страницу сайта"""
 
