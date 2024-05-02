@@ -15,7 +15,7 @@ class TestApplicationForm:
     phone = "+7(999)-999-99-99"
     telegram_user = "@test_user"
 
-    def test_click_link_become_customer_header(self, browser: Type[MainPage]) -> None:
+    def test_click_link_become_customer_header(self, page_main: Type[MainPage]) -> None:
 
         """Функция тестирования Кнопки "Стать клиентом" """
 
@@ -27,16 +27,16 @@ class TestApplicationForm:
                 method="test_click_link_become_customer_header")
 
             # Клик по кнопке "Стать клиентом"
-            browser.click_link_become_customer_header()
+            page_main.click_link_become_customer_header()
 
             # Проверка что после нажатия нас портировало к якорю #contact
-            assert browser.current_url() == "https://irlix.com/#contact"
+            assert page_main.current_url() == "https://irlix.com/#contact"
 
             # Конец записи логирования данной функции
             Logger.add_end_step(
-                method="test_click_link_become_customer_header", url=browser.current_url())
+                method="test_click_link_become_customer_header", url=page_main.current_url())
 
-    def test_input_name(self, browser: Type[MainPage]) -> None:
+    def test_input_name(self, page_main: Type[MainPage]) -> None:
 
         """Функция тестирования поля ввода имени"""
 
@@ -47,20 +47,20 @@ class TestApplicationForm:
             Logger.add_start_step(method="test_input_name")
 
             # Добавление значения в поле ИМЯ
-            browser.input_name(name=self.name)
+            page_main.input_name(name=self.name)
 
             # Инициализация значения в поле кликом по соседнему полю
-            browser.click_initializing_value(locators=locators.input_company)
+            page_main.click_initializing_value(locators=locators.input_company)
 
             # Проверка, что в данный момент в поле действительно находится какоето значение
-            assert browser.find_element_clickable(locators=locators.input_name).get_attribute(
+            assert page_main.find_element_clickable(locators=locators.input_name).get_attribute(
                 "data-gtm-form-interact-field-id") == "0"
 
             # Конец записи логирования данной функции
             Logger.add_end_step(method="test_input_name",
-                                url=browser.current_url())
+                                url=page_main.current_url())
 
-    def test_input_company(self, browser: Type[MainPage]) -> None:
+    def test_input_company(self, page_main: Type[MainPage]) -> None:
 
         """Функция тестирования поля ввода имени компании"""
 
@@ -71,20 +71,20 @@ class TestApplicationForm:
             Logger.add_start_step(method="test_input_company")
 
             # Добавление значения в поле КОМПАНИЯ
-            browser.input_company(company_name=self.name_company)
+            page_main.input_company(company_name=self.name_company)
 
             # Инициализация значения в поле кликом по соседнему полю
-            browser.click_initializing_value(locators=locators.input_name)
+            page_main.click_initializing_value(locators=locators.input_name)
 
             # Проверка, что в данный момент в поле действительно находится какое-то значение
-            assert browser.find_element_clickable(locators=locators.input_company).get_attribute(
+            assert page_main.find_element_clickable(locators=locators.input_company).get_attribute(
                 "data-gtm-form-interact-field-id") == "1"
 
             # Конец записи логирования данной функции
             Logger.add_end_step(method="test_input_company",
-                                url=browser.current_url())
+                                url=page_main.current_url())
 
-    def test_input_email(self, browser: Type[MainPage]) -> None:
+    def test_input_email(self, page_main: Type[MainPage]) -> None:
 
         """Функция тестирования поля ввода почты """
 
@@ -95,20 +95,20 @@ class TestApplicationForm:
             Logger.add_start_step(method="test_input_email")
 
             # Добавление значения в поле ПОЧТА
-            browser.input_email(email=self.email)
+            page_main.input_email(email=self.email)
 
             # Инициализация значения в поле кликом по соседнему полю
-            browser.click_initializing_value(locators=locators.input_name)
+            page_main.click_initializing_value(locators=locators.input_name)
 
             # Проверка, что в данный момент в поле действительно находится какое-то значение
-            assert browser.find_element_clickable(locators=locators.input_email).get_attribute(
+            assert page_main.find_element_clickable(locators=locators.input_email).get_attribute(
                 "data-gtm-form-interact-field-id") == "2"
 
             # Конец записи логирования данной функции
             Logger.add_end_step(method="test_input_email",
-                                url=browser.current_url())
+                                url=page_main.current_url())
 
-    def test_input_phone(self, browser: Type[MainPage]) -> None:
+    def test_input_phone(self, page_main: Type[MainPage]) -> None:
 
         """Функция тестирования поля ввода номера телефона"""
 
@@ -119,20 +119,20 @@ class TestApplicationForm:
             Logger.add_start_step(method="test_input_phone")
 
             # Добавление значения в поле ТЕЛЕФОН
-            browser.input_phone(phone=self.phone)
+            page_main.input_phone(phone=self.phone)
 
             # Инициализация значения в поле кликом по соседнему полю
-            browser.click_initializing_value(locators=locators.input_name)
+            page_main.click_initializing_value(locators=locators.input_name)
 
             # Проверка, что в данный момент в поле действительно находится какое-то значение
-            assert browser.find_element_clickable(locators=locators.input_phone).get_attribute(
+            assert page_main.find_element_clickable(locators=locators.input_phone).get_attribute(
                 "data-gtm-form-interact-field-id") == "3"
 
             # Конец записи логирования данной функции
             Logger.add_end_step(method="test_input_phone",
-                                url=browser.current_url())
+                                url=page_main.current_url())
 
-    def test_input_telegram(self, browser: Type[MainPage]) -> None:
+    def test_input_telegram(self, page_main: Type[MainPage]) -> None:
 
         """Функция тестирования поля ввода имени пользователя телеграм"""
 
@@ -143,20 +143,20 @@ class TestApplicationForm:
             Logger.add_start_step(method="test_input_telegram")
 
             # Добавление значения в поле ТЕЛЕГРАМ
-            browser.input_telegram(telegram_user=self.telegram_user)
+            page_main.input_telegram(telegram_user=self.telegram_user)
 
             # Инициализация значения в поле кликом по соседнему полю
-            browser.click_initializing_value(locators=locators.input_name)
+            page_main.click_initializing_value(locators=locators.input_name)
 
             # Проверка, что в данный момент в поле действительно находится какое-то значение
-            assert browser.find_element_clickable(locators=locators.input_telegram).get_attribute(
+            assert page_main.find_element_clickable(locators=locators.input_telegram).get_attribute(
                 "data-gtm-form-interact-field-id") == "4"
 
             # Конец записи логирования данной функции
             Logger.add_end_step(method="test_input_telegram",
-                                url=browser.current_url())
+                                url=page_main.current_url())
 
-    def test_click_checkbox_qa(self, browser: Type[MainPage]) -> None:
+    def test_click_checkbox_qa(self, page_main: Type[MainPage]) -> None:
 
         """Функция тестирования клика по чек-боксу QA"""
 
@@ -167,17 +167,17 @@ class TestApplicationForm:
             Logger.add_start_step(method="test_click_checkbox_qa")
 
             # Клик по чек_боксу "QA"
-            browser.click_checkbox_qa()
+            page_main.click_checkbox_qa()
 
             # Проверка, что в данный момент чек-бокс активирован
-            assert browser.find_element(locators=locators.input_checkbox_qa).get_attribute(
+            assert page_main.find_element(locators=locators.input_checkbox_qa).get_attribute(
                 "data-gtm-form-interact-field-id") == "5"
 
             # Конец записи логирования данной функции
             Logger.add_end_step(
-                method="test_click_checkbox_qa", url=browser.current_url())
+                method="test_click_checkbox_qa", url=page_main.current_url())
 
-    def test_click_policy_checkbox(self, browser: Type[MainPage]) -> None:
+    def test_click_policy_checkbox(self, page_main: Type[MainPage]) -> None:
 
         """Функция тестирования клика по чек-боксу "Согласие на обработку персональных данных" """
 
@@ -188,16 +188,16 @@ class TestApplicationForm:
             Logger.add_start_step(method="test_click_policy_checkbox")
 
             # Клик по чек_боксу "Согласие на обработку персональных данных"
-            browser.click_policy_checkbox()
+            page_main.click_policy_checkbox()
 
             # Проверка, что в данный момент чек-бокс активирован
-            assert browser.find_element(locators=locators.policy_checkbox_assert).get_attribute(
+            assert page_main.find_element(locators=locators.policy_checkbox_assert).get_attribute(
                 "data-gtm-form-interact-field-id") == "6"
 
             # Конец записи логирования данной функции
             Logger.add_end_step(
-                method="test_click_policy_checkbox", url=browser.current_url())
+                method="test_click_policy_checkbox", url=page_main.current_url())
 
             # Создание и сохранение скриншота
-            browser.save_screenshot(
+            page_main.save_screenshot(
                 path=r"TestApplicationForm")
