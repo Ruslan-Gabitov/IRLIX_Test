@@ -14,8 +14,9 @@ class locators:
     policy_checkbox_assert = ".//input[@id='policy_checkbox']"
     button_go_to_telegram = ".//div[@class='i-process__card']/div/a"
     button_form_submission = ".//button[@id='send_button']"
+    button_go_back_site = "(.//button[@class='modal__close'])[2]"
     link_become_customer_header = ".//a[@class='i-header__action-button i-header__action-button--white']"
-
+    modal_message_error = ".//p[text()='The email must be a valid email address.']"
 
 class MainPage(Base):
     """Класс описывающий главную страницу сайта"""
