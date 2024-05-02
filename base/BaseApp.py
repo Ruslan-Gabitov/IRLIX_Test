@@ -29,7 +29,7 @@ class Base:
                                                       message=f"Can't find element by locator {locators}")
 
     def find_elements(self, locators: str, time: int = 10) -> list[WebElement]:
-        """Функция ожидает WebElement в течении 10 сек и возвращает список эелементов
+        """Функция ожидает WebElement в течении 10 сек и возвращает список элементов
                     в случаи если он присутствует в DOM"""
         
         return WebDriverWait(self.driver, time).until(EC.presence_of_elements_located((By.XPATH, locators)),
@@ -85,5 +85,5 @@ class Base:
 
     def refresh(self):
         """Функция перезагрузки текущей активной вкладки"""
-        
+
         self.driver.refresh()
