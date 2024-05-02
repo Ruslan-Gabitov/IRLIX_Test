@@ -3,8 +3,12 @@ from selenium.webdriver.chrome.options import Options as Options_chrome
 
 
 class ConfDrivers:
+    """Класс для базовых конфигураций браузеров """
+
     @classmethod
     def options_chrome(cls):
+        """Конфигурации браузера Chrome"""
+
         chrome_options = Options_chrome()
         chrome_options.add_argument("--window-size=1980,1080")
         chrome_options.add_argument("--log-level=3")
@@ -15,6 +19,8 @@ class ConfDrivers:
 
     @classmethod
     def options_firefox(cls):
+        """Конфигурации браузера Firefox"""
+
         firefox_options = Options_firefox()
         firefox_options.add_argument("--headless")
         firefox_options.add_argument("--width=1980")
