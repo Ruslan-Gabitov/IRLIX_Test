@@ -197,21 +197,51 @@ class TestApplicationForm:
 
     def test_input_incorrect_email(self, page_main: Type[MainPage]) -> None:
         """Функция проверки modal error окна при введении неверного email"""
+
+        # Шаг сбора отчета Allure
         with allure.step("[test_input_incorrect_email] Проверка ввода некорректного email и открытие модального окна ошибки"):
+
+            # Начало сбора логов данной функции
             Logger.add_start_step(method="test_click_policy_checkbox")
+
+            # Перезагрузка текущей активной вкладки для очистки полей от предыдущего теста
             page_main.refresh()
+
+            # Клик по кнопке "Стать клиентом" в вверху страницы
             page_main.click_link_become_customer_header()
+
+            # Ввод имени в поле ИМЯ
             page_main.input_name(name=self.name)
+
+            # Ввод названия компании в поле КОМПАНИЯ
             page_main.input_company(company_name=self.name_company)
+
+            # ВВод некорректного email в поле ПОЧТА
             page_main.input_email(email=self.incorrect_email)
+
+            # Ввод номера телефона в поле ТЕЛЕФОН
             page_main.input_phone(phone=self.phone)
+
+            # Ввод имени пользователя Telegram в поле ТЕЛЕГРАМ
             page_main.input_telegram(telegram_user=self.telegram_user)
+
+            # Клик по чек-боксу QA
             page_main.click_checkbox_qa()
+
+            # Клик по чек_боксу "Согласие на обработку персональных данных"
             page_main.click_policy_checkbox()
+
+            # Клик по кнопке "Стать клиентом" внизу формы
             page_main.click_button_form_submission()
+
+            # Проверка текста на выплывающей форме ошибки ввода некорректного email
             assert page_main.find_element(
                 locators=locators.modal_message_error).text == "The email must be a valid email address."
+
+            # Клик по кнопке "Вернуться на сайт" формы ошибки ввода некорректного email
             page_main.find_element_clickable(
                 locators=locators.button_go_back_site).click()
+
+            # Конец записи логирования данной функции
             Logger.add_end_step(
                 method="test_click_policy_checkbox", url=page_main.current_url())
