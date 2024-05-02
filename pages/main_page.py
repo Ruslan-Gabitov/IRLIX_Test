@@ -3,8 +3,7 @@ from base.BaseApp import Base
 
 class locators:
     """Класс идентификаторов DOM элементов с использованием XPATH"""
-    link_become_customer_header = ".//a[@class='i-header__action-button i-header__action-button--white']"
-    button_form_submission = ".//button[@id='send_button']"
+
     input_name = ".//input[@id='name_input']"
     input_company = ".//input[@id='company_input']"
     input_email = ".//input[@id='email_input']"
@@ -14,6 +13,8 @@ class locators:
     policy_checkbox = ".//label[@for='policy_checkbox']"
     policy_checkbox_assert = ".//input[@id='policy_checkbox']"
     button_go_to_telegram = ".//div[@class='i-process__card']/div/a"
+    button_form_submission = ".//button[@id='send_button']"
+    link_become_customer_header = ".//a[@class='i-header__action-button i-header__action-button--white']"
 
 
 class MainPage(Base):
