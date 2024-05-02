@@ -197,18 +197,18 @@ class TestApplicationForm:
 
     def test_input_incorrect_email(self, page_main: Type[MainPage]) -> None:
         """Функция проверки modal error окна при введении неверного email"""
-
-        page_main.refresh()
-        page_main.click_link_become_customer_header()
-        page_main.input_name(name=self.name)
-        page_main.input_company(company_name=self.name_company)
-        page_main.input_email(email=self.incorrect_email)
-        page_main.input_phone(phone=self.phone)
-        page_main.input_telegram(telegram_user=self.telegram_user)
-        page_main.click_checkbox_qa()
-        page_main.click_policy_checkbox()
-        page_main.click_button_form_submission()
-        assert page_main.find_element(
-            locators=locators.modal_message_error).text == "The email must be a valid email address."
-        page_main.find_element_clickable(
-            locators=locators.button_go_back_site).click()
+        with allure.step("[test_input_incorrect_email] Проверка ввода некорректного email и открытие модального окна ошибки"):
+            page_main.refresh()
+            page_main.click_link_become_customer_header()
+            page_main.input_name(name=self.name)
+            page_main.input_company(company_name=self.name_company)
+            page_main.input_email(email=self.incorrect_email)
+            page_main.input_phone(phone=self.phone)
+            page_main.input_telegram(telegram_user=self.telegram_user)
+            page_main.click_checkbox_qa()
+            page_main.click_policy_checkbox()
+            page_main.click_button_form_submission()
+            assert page_main.find_element(
+                locators=locators.modal_message_error).text == "The email must be a valid email address."
+            page_main.find_element_clickable(
+                locators=locators.button_go_back_site).click()
