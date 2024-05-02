@@ -9,7 +9,7 @@ from selenium.webdriver.firefox.service import Service as FirefoxService
 
 
 @pytest.fixture(scope="module")
-def browser(request):
+def get_driver(request):
     """Фикстура для создания объектов webdrivers Chrome или Firefox
                 в зависимости от предаваемого аргумента командной строки"""
 
@@ -19,10 +19,10 @@ def browser(request):
         print("Открытие браузера Firefox")
         driver = webdriver.Firefox(service=FirefoxService(
             GeckoDriverManager().install()), options=ConfDrivers.options_firefox())
-        mp = MainPage(driver)
-        mp.go_to_site()
+        # mp = MainPage(driver)
+        # mp.go_to_site()
 
-        yield mp
+        yield driver
 
         driver.quit()
         print("Закрытие браузера Firefox")
@@ -32,13 +32,22 @@ def browser(request):
         print("Открытие браузера Chrome")
         driver = webdriver.Chrome(service=ChromiumService(
             ChromeDriverManager().install()), options=ConfDrivers.options_chrome())
-        mp = MainPage(driver)
-        mp.go_to_site()
+        # mp = MainPage(driver)
+        # mp.go_to_site()
 
-        yield mp
+        yield driver
 
         driver.quit()
         print("Закрытие браузера Chrome")
+
+
+@pytest.fixture(scope="module")
+def browser(get_driver):
+    """Передает экземпляр класса MainPage в тестовые функции"""
+
+    mp = MainPage(get_driver)
+    mp.go_to_site()
+    return mp
 
 
 def pytest_addoption(parser):
