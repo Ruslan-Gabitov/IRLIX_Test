@@ -101,6 +101,14 @@ class MainPage(Base):
             locators=locators.button_go_to_telegram).click()
         print("> Клик по кнопке \"Написать\"")
 
+    def click_button_form_submission(self):
+        """Функция ожидает WebElement (кнопку "Стать клиентом в низу формы) в течении 10 сек и если
+            элемент кликабелен делает клик по нему"""
+
+        self.find_element_clickable(
+            locators=locators.button_form_submission).click()
+        print("> Клик по ссылке \"Стать клиентом\" внизу формы")
+
 
 if __name__ == "__main__":
     pass
