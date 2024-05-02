@@ -1,4 +1,5 @@
 from base.BaseApp import Base
+import allure
 
 
 class locators:
@@ -27,8 +28,8 @@ class MainPage(Base):
 
     def click_initializing_value(self, locators):
         """Для инициализации значения в поле ввода"""
-
-        self.find_element_clickable(locators=locators).click()
+        with allure.step("[click_initializing_value] Инициализация значения в поле ввода (клик по соседнему полю ввода)"):
+            self.find_element_clickable(locators=locators).click()
 
     """Actions"""
 
@@ -36,79 +37,89 @@ class MainPage(Base):
         """Функция ожидает WebElement в течении 10 сек и возвращает его
                     в случаи если он кликабелен и делает клик по этому элементу"""
 
-        self.find_element_clickable(
-            locators=locators.link_become_customer_header).click()
-        print("> Клик по ссылке \"Стать клиентом\"")
+        with allure.step("[click_link_become_customer_header] Клик по ссылке \"Стать клиентом\""):
+            self.find_element_clickable(
+                locators=locators.link_become_customer_header).click()
+            print("> Клик по ссылке \"Стать клиентом\"")
 
     def input_name(self, name: str) -> None:
         """Функция ожидает WebElement поля ИМЯ в течении 10 сек и возвращает его
                     в случаи если он кликабелен и добавляет в него значение"""
 
-        self.find_element_clickable(
-            locators=locators.input_name).send_keys(name)
-        print("> Добавлено имя в поле ИМЯ")
+        with allure.step("[input_name] Добавление имени в поле ИМЯ"):
+            self.find_element_clickable(
+                locators=locators.input_name).send_keys(name)
+            print("> Добавлено имя в поле ИМЯ")
 
     def input_company(self, company_name: str) -> None:
         """Функция ожидает WebElement поля КОМПАНИЯ в течении 10 сек и возвращает его
                     в случаи если он кликабелен и добавляет в него значение"""
 
-        self.find_element_clickable(
-            locators=locators.input_company).send_keys(company_name)
-        print("> Добавлено название компании в поле КОМПАНИЯ")
+        with allure.step("[input_company] Добавление названия компании в поле КОМПАНИЯ"):
+            self.find_element_clickable(
+                locators=locators.input_company).send_keys(company_name)
+            print("> Добавлено название компании в поле КОМПАНИЯ")
 
     def input_email(self, email: str) -> None:
         """Функция ожидает WebElement поля ПОЧТА в течении 10 сек и возвращает его
                     в случаи если он кликабелен и добавляет в него значение"""
 
-        self.find_element_clickable(
-            locators=locators.input_email).send_keys(email)
-        print("> Добавлен email в поле ПОЧТА")
+        with allure.step("[input_email] Добавление email в поле ПОЧТА"):
+            self.find_element_clickable(
+                locators=locators.input_email).send_keys(email)
+            print("> Добавлен email в поле ПОЧТА")
 
     def input_phone(self, phone) -> None:
         """Функция ожидает WebElement поля ТЕЛЕФОН в течении 10 сек и возвращает его
                     в случаи если он кликабелен и добавляет в него значение"""
 
-        self.find_element_clickable(
-            locators=locators.input_phone).send_keys(phone)
-        print("> Добавлен телефон в поле ТЕЛЕФОН")
+        with allure.step("[input_phone] Добавление номера телефона в поле ТЕЛЕФОН"):
+            self.find_element_clickable(
+                locators=locators.input_phone).send_keys(phone)
+            print("> Добавлен телефон в поле ТЕЛЕФОН")
 
     def input_telegram(self, telegram_user) -> None:
         """Функция ожидает WebElement поля ТЕЛЕГРАМ в течении 10 сек и возвращает его
                     в случаи если он кликабелен и добавляет в него значение"""
 
-        self.find_element_clickable(
-            locators=locators.input_telegram).send_keys(telegram_user)
-        print("> Добавлен телеграм в поле ТЕЛЕГРАМ")
+        with allure.step("[input_telegram] Добавление имени пользователя Telegram в поле ТЕЛЕГРАМ"):
+            self.find_element_clickable(
+                locators=locators.input_telegram).send_keys(telegram_user)
+            print("> Добавлен телеграм в поле ТЕЛЕГРАМ")
 
     def click_checkbox_qa(self) -> None:
         """Функция ожидает WebElement (чек-бокс QA) в течении 10 сек и возвращает его
                     в случаи если он присутствует в DOM и делает клик по чек-боксу"""
 
-        self.find_element(locators=locators.input_checkbox_qa).click()
-        print("> Клик по чек-боксу \"QA\"")
+        with allure.step("[click_checkbox_qa] Клик по чек-боксу \"QA\""):
+            self.find_element(locators=locators.input_checkbox_qa).click()
+            print("> Клик по чек-боксу \"QA\"")
 
     def click_policy_checkbox(self) -> None:
         """Функция ожидает WebElement (чек-бокс "Согласие на обработку данных") в течении 10 сек и возвращает его
                     в случаи если он присутствует в DOM и делает клик по чек-боксу"""
 
-        self.find_element(locators=locators.policy_checkbox).click()
-        print("> Клик по чек-боксу \"Согласие на обработку данных\"")
+        with allure.step("[click_policy_checkbox] Клик по чек-боксу \"Согласие на обработку данных\""):
+            self.find_element(locators=locators.policy_checkbox).click()
+            print("> Клик по чек-боксу \"Согласие на обработку данных\"")
 
     def click_button_go_to_telegram(self):
         """Функция ожидает WebElement (кнопку "Написать") в течении 10 сек и делает scroll до
                     элемента в случаи если он кликабелен"""
 
-        self.move_to_clickable_element(
-            locators=locators.button_go_to_telegram).click()
-        print("> Клик по кнопке \"Написать\"")
+        with allure.step("[click_button_go_to_telegram] Клик по кнопке \"Написать\""):
+            self.move_to_clickable_element(
+                locators=locators.button_go_to_telegram).click()
+            print("> Клик по кнопке \"Написать\"")
 
     def click_button_form_submission(self):
         """Функция ожидает WebElement (кнопку "Стать клиентом в низу формы) в течении 10 сек и если
             элемент кликабелен делает клик по нему"""
 
-        self.find_element_clickable(
-            locators=locators.button_form_submission).click()
-        print("> Клик по ссылке \"Стать клиентом\" внизу формы")
+        with allure.step("[click_button_form_submission] Клик по ссылке \"Стать клиентом\" внизу формы"):
+            self.find_element_clickable(
+                locators=locators.button_form_submission).click()
+            print("> Клик по ссылке \"Стать клиентом\" внизу формы")
 
 
 if __name__ == "__main__":
