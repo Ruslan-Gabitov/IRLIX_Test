@@ -12,6 +12,7 @@ class TestApplicationForm:
     name = "TestName"
     name_company = "TestNameCompany"
     email = "test@company.com"
+    incorrect_email = "test@company-com"
     phone = "+7(999)-999-99-99"
     telegram_user = "@test_user"
 
