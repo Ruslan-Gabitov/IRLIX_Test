@@ -19,8 +19,6 @@ def get_driver(request):
         print("Открытие браузера Firefox")
         driver = webdriver.Firefox(service=FirefoxService(
             GeckoDriverManager().install()), options=ConfDrivers.options_firefox())
-        # mp = MainPage(driver)
-        # mp.go_to_site()
 
         yield driver
 
@@ -32,8 +30,6 @@ def get_driver(request):
         print("Открытие браузера Chrome")
         driver = webdriver.Chrome(service=ChromiumService(
             ChromeDriverManager().install()), options=ConfDrivers.options_chrome())
-        # mp = MainPage(driver)
-        # mp.go_to_site()
 
         yield driver
 
