@@ -32,8 +32,10 @@ class Base:
         """Функция ожидает WebElement в течении 10 сек и возвращает список элементов
                     в случаи если он присутствует в DOM"""
         
-        return WebDriverWait(self.driver, time).until(EC.presence_of_elements_located((By.XPATH, locators)),
+        WebDriverWait(self.driver, time).until(EC.presence_of_elements_located((By.XPATH, locators)),
                                                       message=f"Can't find element by locator {locators}")
+        
+        return self.driver.find_elements(By.XPATH, locators)
 
     def switch_to_window(self, number_window: int) -> None:
         """Функция для перехода на новую вкладку (работает корректно с Chrome),
