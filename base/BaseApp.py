@@ -70,6 +70,12 @@ class Base:
         self.driver.save_screenshot(
             f"screen\{path}_{formatted_string}.png")
 
+    def is_displayed(self, locator: str) -> bool:
+        """Функция проверки находится ли элемент в поле видимости экрана"""
+
+        element = self.find_element(locators=locator)
+        return element.is_displayed()
+
     def current_url(self) -> str:
         """Функция получает URL текущей, активной страницы"""
 
