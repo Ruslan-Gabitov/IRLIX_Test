@@ -32,8 +32,7 @@ class Base:
         """Функция ожидает WebElement в течении 10 сек и возвращает список элементов
                     в случаи если он присутствует в DOM"""
         
-        WebDriverWait(self.driver, time).until(EC.presence_of_elements_located((By.XPATH, locator)),
-                                                      message=f"Can't find element by locator {locator}")
+        self.find_element(locator=locator)
         
         return self.driver.find_elements(By.XPATH, locator)
 
