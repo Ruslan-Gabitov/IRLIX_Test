@@ -16,8 +16,10 @@ class locators:
     button_go_to_telegram = ".//div[@class='i-process__card']/div/a"
     button_form_submission = ".//button[@id='send_button']"
     button_go_back_site = "(.//button[@class='modal__close'])[2]"
+    button_swiper_next = ".//div[@class='swiper-button-next']"
     link_become_customer_header = ".//a[@class='i-header__action-button i-header__action-button--white']"
     modal_message_error = ".//p[text()='The email must be a valid email address.']"
+    img_logo = ".//img[@class='i-feedbacks__header-logo-img']"
 
 
 class MainPage(Base):
