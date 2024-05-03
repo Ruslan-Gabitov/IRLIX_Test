@@ -70,10 +70,14 @@ class Base:
         self.driver.save_screenshot(
             f"screen\{path}_{formatted_string}.png")
 
-    def is_displayed(self, locator: str) -> bool:
+    def is_displayed(self, locator: str, time: int = 10) -> bool:
         """Функция проверки находится ли элемент в поле видимости экрана"""
 
-        element = self.find_element(locator=locator)
+        # Ожидает пока элемент станет видимым на странице
+        element = WebDriverWait(self.driver, time).until(EC.visibility_of_element_located((By.XPATH, locator)),
+                                                message=f"Can't find element by locator {locator}")
+        # Возвращает True в случаи если элемент находится в зоне видимости экрана 
+        # и False в ином случаи
         return element.is_displayed()
 
     def current_url(self) -> str:
