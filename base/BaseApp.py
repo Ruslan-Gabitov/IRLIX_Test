@@ -14,28 +14,28 @@ class Base:
         self.driver = driver
         self.base_url = "https://irlix.com/"
 
-    def find_element_clickable(self, locators: str, time: int = 10) -> WebElement:
+    def find_element_clickable(self, locator: str, time: int = 10) -> WebElement:
         """Функция ожидает WebElement в течении 10 сек и возвращает его 
                     в случаи если он кликабелен"""
 
-        return WebDriverWait(self.driver, time).until(EC.element_to_be_clickable((By.XPATH, locators)),
-                                                      message=f"Can't find element by locator {locators}")
+        return WebDriverWait(self.driver, time).until(EC.element_to_be_clickable((By.XPATH, locator)),
+                                                      message=f"Can't find element by locator {locator}")
 
-    def find_element(self, locators: str, time: int = 10) -> WebElement:
+    def find_element(self, locator: str, time: int = 10) -> WebElement:
         """Функция ожидает WebElement в течении 10 сек и возвращает его 
                     в случаи если он присутствует в DOM"""
         
-        return WebDriverWait(self.driver, time).until(EC.presence_of_element_located((By.XPATH, locators)),
-                                                      message=f"Can't find element by locator {locators}")
+        return WebDriverWait(self.driver, time).until(EC.presence_of_element_located((By.XPATH, locator)),
+                                                      message=f"Can't find element by locator {locator}")
 
-    def find_elements(self, locators: str, time: int = 10) -> list[WebElement]:
+    def find_elements(self, locator: str, time: int = 10) -> list[WebElement]:
         """Функция ожидает WebElement в течении 10 сек и возвращает список элементов
                     в случаи если он присутствует в DOM"""
         
-        WebDriverWait(self.driver, time).until(EC.presence_of_elements_located((By.XPATH, locators)),
-                                                      message=f"Can't find element by locator {locators}")
+        WebDriverWait(self.driver, time).until(EC.presence_of_elements_located((By.XPATH, locator)),
+                                                      message=f"Can't find element by locator {locator}")
         
-        return self.driver.find_elements(By.XPATH, locators)
+        return self.driver.find_elements(By.XPATH, locator)
 
     def switch_to_window(self, number_window: int) -> None:
         """Функция для перехода на новую вкладку (работает корректно с Chrome),
@@ -48,12 +48,12 @@ class Base:
         except NoSuchWindowException:
             pass
 
-    def move_to_clickable_element(self, locators: str):
+    def move_to_clickable_element(self, locator: str):
         """Функция проверяет присутствие кликабельного элемента на странице
             и делает scroll до него. Использование execute_script необходимо
             для корректной работы в двух браузерах Firefox и Chrome"""
         
-        element = self.find_element_clickable(locators)
+        element = self.find_element_clickable(locator)
         self.driver.execute_script(
             "arguments[0].scrollIntoView(true);", element)
         return element
@@ -73,7 +73,7 @@ class Base:
     def is_displayed(self, locator: str) -> bool:
         """Функция проверки находится ли элемент в поле видимости экрана"""
 
-        element = self.find_element(locators=locator)
+        element = self.find_element(locator=locator)
         return element.is_displayed()
 
     def current_url(self) -> str:
