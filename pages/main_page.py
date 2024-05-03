@@ -26,10 +26,10 @@ class MainPage(Base):
     def __init__(self, driver):
         super().__init__(driver)
 
-    def click_initializing_value(self, locators):
+    def click_initializing_value(self, locator):
         """Для инициализации значения в поле ввода"""
         with allure.step("[click_initializing_value] Инициализация значения в поле ввода (клик по соседнему полю ввода)"):
-            self.find_element_clickable(locators=locators).click()
+            self.find_element_clickable(locator=locator).click()
 
     """Actions"""
 
@@ -39,7 +39,7 @@ class MainPage(Base):
 
         with allure.step("[click_link_become_customer_header] Клик по ссылке \"Стать клиентом\""):
             self.find_element_clickable(
-                locators=locators.link_become_customer_header).click()
+                locator=locators.link_become_customer_header).click()
             print("> Клик по ссылке \"Стать клиентом\"")
 
     def input_name(self, name: str) -> None:
@@ -48,7 +48,7 @@ class MainPage(Base):
 
         with allure.step("[input_name] Добавление имени в поле ИМЯ"):
             self.find_element_clickable(
-                locators=locators.input_name).send_keys(name)
+                locator=locators.input_name).send_keys(name)
             print("> Добавлено имя в поле ИМЯ")
 
     def input_company(self, company_name: str) -> None:
@@ -57,7 +57,7 @@ class MainPage(Base):
 
         with allure.step("[input_company] Добавление названия компании в поле КОМПАНИЯ"):
             self.find_element_clickable(
-                locators=locators.input_company).send_keys(company_name)
+                locator=locators.input_company).send_keys(company_name)
             print("> Добавлено название компании в поле КОМПАНИЯ")
 
     def input_email(self, email: str) -> None:
@@ -66,7 +66,7 @@ class MainPage(Base):
 
         with allure.step("[input_email] Добавление email в поле ПОЧТА"):
             self.find_element_clickable(
-                locators=locators.input_email).send_keys(email)
+                locator=locators.input_email).send_keys(email)
             print("> Добавлен email в поле ПОЧТА")
 
     def input_phone(self, phone) -> None:
@@ -75,7 +75,7 @@ class MainPage(Base):
 
         with allure.step("[input_phone] Добавление номера телефона в поле ТЕЛЕФОН"):
             self.find_element_clickable(
-                locators=locators.input_phone).send_keys(phone)
+                locator=locators.input_phone).send_keys(phone)
             print("> Добавлен телефон в поле ТЕЛЕФОН")
 
     def input_telegram(self, telegram_user) -> None:
@@ -84,7 +84,7 @@ class MainPage(Base):
 
         with allure.step("[input_telegram] Добавление имени пользователя Telegram в поле ТЕЛЕГРАМ"):
             self.find_element_clickable(
-                locators=locators.input_telegram).send_keys(telegram_user)
+                locator=locators.input_telegram).send_keys(telegram_user)
             print("> Добавлен телеграм в поле ТЕЛЕГРАМ")
 
     def click_checkbox_qa(self) -> None:
@@ -92,7 +92,7 @@ class MainPage(Base):
                     в случаи если он присутствует в DOM и делает клик по чек-боксу"""
 
         with allure.step("[click_checkbox_qa] Клик по чек-боксу \"QA\""):
-            self.find_element(locators=locators.input_checkbox_qa).click()
+            self.find_element(locator=locators.input_checkbox_qa).click()
             print("> Клик по чек-боксу \"QA\"")
 
     def click_policy_checkbox(self) -> None:
@@ -100,7 +100,7 @@ class MainPage(Base):
                     в случаи если он присутствует в DOM и делает клик по чек-боксу"""
 
         with allure.step("[click_policy_checkbox] Клик по чек-боксу \"Согласие на обработку данных\""):
-            self.find_element(locators=locators.policy_checkbox).click()
+            self.find_element(locator=locators.policy_checkbox).click()
             print("> Клик по чек-боксу \"Согласие на обработку данных\"")
 
     def click_button_go_to_telegram(self):
@@ -118,7 +118,7 @@ class MainPage(Base):
 
         with allure.step("[click_button_form_submission] Клик по ссылке \"Стать клиентом\" внизу формы"):
             self.find_element_clickable(
-                locators=locators.button_form_submission).click()
+                locator=locators.button_form_submission).click()
             print("> Клик по ссылке \"Стать клиентом\" внизу формы")
 
 
