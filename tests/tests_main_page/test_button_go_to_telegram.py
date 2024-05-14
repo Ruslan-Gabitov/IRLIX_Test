@@ -20,7 +20,7 @@ class TestButtonGoToTelegram:
 
             # Ожидание кликабельного WebElement-а и scroll до него и клик
             page_main.move_to_clickable_element(
-                locator=locators.button_go_to_telegram).click()
+                locator=locators.button_go_to_telegram_locator).click()
 
             # Переход на вновь открывшеюся вкладку (в случаи с Chrome). В случаи FairFox
             # происходит перехват исключения NoSuchWindowException

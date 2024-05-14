@@ -16,11 +16,11 @@ class TestPartnerFeedbackSlider:
                 method="test_click_link_become_customer_header")
 
             # Портируемся к кликабельному элементу
-            page_main.move_to_clickable_element(locator=locators.img_logo)
+            page_main.move_to_clickable_element(locator=locators.img_logo_locator)
 
             # Получаем названия брендов из атрибута alt
             value_img_alts = [img_tag.get_attribute("alt")
-                              for img_tag in page_main.find_elements(locator=locators.img_logo)]
+                              for img_tag in page_main.find_elements(locator=locators.img_logo_locator)]
 
             # Используем длину списка value_img_alts
             for index in range(0, len(value_img_alts)):
@@ -38,7 +38,7 @@ class TestPartnerFeedbackSlider:
 
                     # Кликаем по кнопке button_swiper_next для свайпа в право слайдера комментариев
                     page_main.find_element_clickable(
-                        locators.button_swiper_next).click()
+                        locators.button_swiper_next_locator).click()
 
             # Конец записи логирования данной функции
             Logger.add_end_step(

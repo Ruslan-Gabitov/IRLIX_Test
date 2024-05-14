@@ -49,10 +49,10 @@ class TestApplicationForm:
             page_main.input_name(name=self.name)
 
             # Инициализация значения в поле кликом по соседнему полю
-            page_main.click_initializing_value(locator=locators.input_company)
+            page_main.click_initializing_value(locator=locators.input_company_locator)
 
             # Проверка, что в данный момент в поле действительно находится какоето значение
-            assert page_main.find_element_clickable(locator=locators.input_name).get_attribute(
+            assert page_main.find_element_clickable(locator=locators.input_name_locator).get_attribute(
                 "data-gtm-form-interact-field-id") == "0"
 
             # Конец записи логирования данной функции
@@ -72,10 +72,10 @@ class TestApplicationForm:
             page_main.input_company(company_name=self.name_company)
 
             # Инициализация значения в поле кликом по соседнему полю
-            page_main.click_initializing_value(locator=locators.input_name)
+            page_main.click_initializing_value(locator=locators.input_name_locator)
 
             # Проверка, что в данный момент в поле действительно находится какое-то значение
-            assert page_main.find_element_clickable(locator=locators.input_company).get_attribute(
+            assert page_main.find_element_clickable(locator=locators.input_company_locator).get_attribute(
                 "data-gtm-form-interact-field-id") == "1"
 
             # Конец записи логирования данной функции
@@ -95,10 +95,10 @@ class TestApplicationForm:
             page_main.input_email(email=self.email)
 
             # Инициализация значения в поле кликом по соседнему полю
-            page_main.click_initializing_value(locator=locators.input_name)
+            page_main.click_initializing_value(locator=locators.input_name_locator)
 
             # Проверка, что в данный момент в поле действительно находится какое-то значение
-            assert page_main.find_element_clickable(locator=locators.input_email).get_attribute(
+            assert page_main.find_element_clickable(locator=locators.input_email_locator).get_attribute(
                 "data-gtm-form-interact-field-id") == "2"
 
             # Конец записи логирования данной функции
@@ -118,10 +118,10 @@ class TestApplicationForm:
             page_main.input_phone(phone=self.phone)
 
             # Инициализация значения в поле кликом по соседнему полю
-            page_main.click_initializing_value(locator=locators.input_name)
+            page_main.click_initializing_value(locator=locators.input_name_locator)
 
             # Проверка, что в данный момент в поле действительно находится какое-то значение
-            assert page_main.find_element_clickable(locator=locators.input_phone).get_attribute(
+            assert page_main.find_element_clickable(locator=locators.input_phone_locator).get_attribute(
                 "data-gtm-form-interact-field-id") == "3"
 
             # Конец записи логирования данной функции
@@ -141,10 +141,10 @@ class TestApplicationForm:
             page_main.input_telegram(telegram_user=self.telegram_user)
 
             # Инициализация значения в поле кликом по соседнему полю
-            page_main.click_initializing_value(locator=locators.input_name)
+            page_main.click_initializing_value(locator=locators.input_name_locator)
 
             # Проверка, что в данный момент в поле действительно находится какое-то значение
-            assert page_main.find_element_clickable(locator=locators.input_telegram).get_attribute(
+            assert page_main.find_element_clickable(locator=locators.input_telegram_locator).get_attribute(
                 "data-gtm-form-interact-field-id") == "4"
 
             # Конец записи логирования данной функции
@@ -164,7 +164,7 @@ class TestApplicationForm:
             page_main.click_checkbox_qa()
 
             # Проверка, что в данный момент чек-бокс активирован
-            assert page_main.find_element(locator=locators.input_checkbox_qa).get_attribute(
+            assert page_main.find_element(locator=locators.input_checkbox_qa_locator).get_attribute(
                 "data-gtm-form-interact-field-id") == "5"
 
             # Конец записи логирования данной функции
@@ -184,7 +184,7 @@ class TestApplicationForm:
             page_main.click_policy_checkbox()
 
             # Проверка, что в данный момент чек-бокс активирован
-            assert page_main.find_element(locator=locators.policy_checkbox_assert).get_attribute(
+            assert page_main.find_element(locator=locators.policy_checkbox_assert_locator).get_attribute(
                 "data-gtm-form-interact-field-id") == "6"
 
             # Конец записи логирования данной функции
@@ -236,11 +236,11 @@ class TestApplicationForm:
 
             # Проверка текста на выплывающей форме ошибки ввода некорректного email
             assert page_main.find_element(
-                locator=locators.modal_message_error).text == "The email must be a valid email address."
+                locator=locators.modal_message_error_locator).text == "The email must be a valid email address."
 
             # Клик по кнопке "Вернуться на сайт" формы ошибки ввода некорректного email
             page_main.find_element_clickable(
-                locator=locators.button_go_back_site).click()
+                locator=locators.button_go_back_site_locator).click()
 
             # Конец записи логирования данной функции
             Logger.add_end_step(
