@@ -75,7 +75,7 @@ class Base:
             utc_now = datetime.now(utc_tz)
             formatted_string = utc_now.strftime(r'%Y_%m_%d_%H_%M_%S')
             self.driver.save_screenshot(
-                f"screen\{path}_{formatted_string}.png")
+                f"screen/{path}_{formatted_string}.png")
 
     def is_displayed(self, locator: str, time: int = 10) -> bool:
         """Функция проверки находится ли элемент в поле видимости экрана"""
